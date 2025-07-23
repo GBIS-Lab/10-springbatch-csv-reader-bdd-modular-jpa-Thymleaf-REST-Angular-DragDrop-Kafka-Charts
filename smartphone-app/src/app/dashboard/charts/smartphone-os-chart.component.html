@@ -1,0 +1,11 @@
+<div class="data-preview">
+  <h3>Nombre de smartphones par OS</h3>
+
+  <ul *ngIf="osStats">
+    <li *ngFor="let os of osNames">
+      {{ os }} : {{ osStats[os] }}
+    </li>
+  </ul>
+
+  <div *ngIf="!osStats">Chargement en cours...</div>
+</div>

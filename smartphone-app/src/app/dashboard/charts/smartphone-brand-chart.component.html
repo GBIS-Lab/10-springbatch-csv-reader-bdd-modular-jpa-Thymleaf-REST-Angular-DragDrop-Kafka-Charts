@@ -1,0 +1,20 @@
+<!--<div class="chart-container">
+  <canvas baseChart  *ngIf="chartData?.labels?.length"
+          [data]="chartData"
+          [type]="chartType"
+          [options]="chartOptions"
+          width="400"
+          height="300">
+  </canvas>
+</div> -->
+<div class="data-preview">
+  <h3>Nombre de smartphones par marque</h3>
+
+  <ul *ngIf="brandStats">
+    <li *ngFor="let brand of brandNames">
+      {{ brand }} : {{ brandStats[brand] }}
+    </li>
+  </ul>
+
+  <div *ngIf="!brandStats">Chargement en cours...</div>
+</div>
