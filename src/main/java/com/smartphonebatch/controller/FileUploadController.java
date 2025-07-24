@@ -20,8 +20,6 @@ public class FileUploadController {
 
     private static final String UPLOAD_DIR = "uploads";
 
-    //@Autowired
-    //private BatchLauncherService batchLauncherService;
     @Autowired
     private JobLauncher jobLauncher;
 
@@ -51,25 +49,12 @@ public class FileUploadController {
             String savedFileName = "smartphones-" + System.nanoTime() + ".csv";
             Path filePath = uploadPath.resolve(savedFileName);
 
-            //Path tempFile = Files.createTempFile("smartphones-", ".csv");
-            //file.transferTo(tempFile.toFile());
-            //batchLauncherService.launchJob(tempFile.toAbsolutePath().toString());
-
-            /*
-            Path filePath = Files.createTempFile(uploadDir.toPath(), "smartphones-", ".csv");
-            // Sauvegarder le fichier téléchargé dans ce répertoire
-            file.transferTo(filePath.toFile());
-            System.out.println("📂 Fichier téléchargé dans : " + filePath);
-            // Lancer le job avec le chemin du fichier
-            batchLauncherService.launchJob(filePath.toAbsolutePath().toString());
-            */
-
-            // Sauvegarder le fichier
+            // Sauvegarde du fichier
             file.transferTo(filePath.toFile());
 
             System.out.println("✅ Fichier sauvegardé à : " + filePath);
 
-            // Lancer le batch
+            // Lancement du batch
             jobLauncher.run(smartphoneJob, new JobParametersBuilder()
                     .addString("inputFile", filePath.toString())
                     .addLong("startAt", System.currentTimeMillis())
@@ -78,7 +63,7 @@ public class FileUploadController {
             return ResponseEntity.ok("✅ Fichier uploadé et batch lancé !");
 
         } catch (Exception e) {
-            e.printStackTrace(); // Afficher l'exception dans les logs
+            e.printStackTrace();
             return ResponseEntity.status(500).body("Erreur lors du traitement du fichier.");
         }
     }
