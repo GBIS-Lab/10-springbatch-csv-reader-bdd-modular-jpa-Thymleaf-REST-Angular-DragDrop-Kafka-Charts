@@ -19,12 +19,6 @@ public class BatchLauncherService {
     @Autowired
     private SmartphoneProducer smartphoneProducer;
 
-    /*public void publierSmartphonesKafka() {
-        ParseTreePattern smartphoneRepository = null;
-        List<Smartphone> smartphones = smartphoneRepository.findAll();
-        smartphones.forEach(smartphoneProducer::sendSmartphone);
-    }*/
-
     public void launchJob(String filePath) throws Exception {
         JobParameters params = new JobParametersBuilder()
                 .addString("inputFile", filePath)
