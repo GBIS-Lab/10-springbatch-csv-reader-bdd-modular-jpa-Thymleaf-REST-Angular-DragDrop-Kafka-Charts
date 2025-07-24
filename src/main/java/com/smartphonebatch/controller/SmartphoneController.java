@@ -3,7 +3,6 @@ package com.smartphonebatch.controller;
 import com.smartphonebatch.model.Smartphone;
 import com.smartphonebatch.repository.SmartphoneRepository;
 import com.smartphonebatch.service.SmartphoneConsumer;
-//import com.nemezyx.smartphonebatch.service.SmartphoneKafkaReader;
 import com.smartphonebatch.service.SmartphoneProducer;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
@@ -64,7 +63,7 @@ public class SmartphoneController {
         return smartphoneRepository.findAll();
     }
 
-    // ✅ Méthode pour l'accès par ID :
+    // Méthode pour l'accès par ID :
     @GetMapping("/{id}")
     public ResponseEntity<Smartphone> getSmartphoneById(@PathVariable Long id) {
         log.info("🔍 Récupération du smartphone avec l'ID : {}", id);
