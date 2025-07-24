@@ -20,13 +20,7 @@ public class SmartphoneProducer {
     public SmartphoneProducer(KafkaTemplate<String, Smartphone> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
-    /*
-    public void sendSmartphone(Smartphone smartphone) {
-        logger.info("📤 Envoi du smartphone au topic Kafka : {}", smartphone);
-        System.out.println("⚙️ Tentative d'envoi Kafka : " + smartphone.getMarque());
-        kafkaTemplate.send(TOPIC, smartphone);
-    }
-    */
+
     public void sendSmartphone(Smartphone smartphone) {
         logger.info("📤 Envoi du smartphone au topic Kafka : {}", smartphone);
         
