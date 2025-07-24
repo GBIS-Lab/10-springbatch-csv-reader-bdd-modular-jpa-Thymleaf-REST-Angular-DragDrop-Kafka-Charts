@@ -17,23 +17,5 @@ public class SmartphoneBatchApplication {
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(SmartphoneBatchApplication.class, args);
 
-        /*
-        //LANCEMENT AU DEMARRAGE DU BATCH
-
-        JobLauncher jobLauncher = context.getBean(JobLauncher.class);
-
-        Job job = context.getBean("smartphoneJob", Job.class);
-
-        try {
-            String inputFilePath = "C:/Users/<user>/IdeaProjects/smartphonebatch10 - CSV-BDD-controller-Thymeleaf JPA Angular DragDrop/src/main/resources/smartphones.csv";
-
-            jobLauncher.run(job, new JobParametersBuilder()
-                    .addString("inputFile", inputFilePath)
-                    .addLong("startAt", System.currentTimeMillis())
-                    .toJobParameters());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        */
     }
 }
